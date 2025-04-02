@@ -1,1 +1,277 @@
-<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录成为更好的自己"><title>宁静致远</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">宁静致远</h1><a id="logo" href="/.">宁静致远</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2018/08/06/hello-world/">Hello World</a></h1><div class="post-meta">2018-08-06</div><div class="post-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p></div><p class="readmore"><a href="/2018/08/06/hello-world/">Mehr lesen</a></p></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">宁静致远.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简洁待办事项</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .deadline-input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            gap: 10px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .delete-btn {
+            background-color: #ff4444;
+            padding: 4px 8px;
+            font-size: 14px;
+        }
+
+        .delete-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .overdue {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        /* 添加 Tab 样式 */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #666;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #4CAF50;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4CAF50;
+        }
+
+        .tab-count {
+            background-color: #eee;
+            border-radius: 10px;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>待办事项</h1>
+        <div class="input-group">
+            <input type="text" id="todoInput" placeholder="添加新的待办事项...">
+            <input type="datetime-local" id="deadlineInput" class="deadline-input">
+            <button onclick="addTodo()">添加</button>
+        </div>
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('all')">
+                全部<span class="tab-count" id="all-count">0</span>
+            </button>
+            <button class="tab" onclick="switchTab('active')">
+                待完成<span class="tab-count" id="active-count">0</span>
+            </button>
+            <button class="tab" onclick="switchTab('completed')">
+                已完成<span class="tab-count" id="completed-count">0</span>
+            </button>
+        </div>
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        let currentTab = 'all';
+
+        function updateTabCounts() {
+            const allCount = todos.length;
+            const activeCount = todos.filter(todo => !todo.completed).length;
+            const completedCount = todos.filter(todo => todo.completed).length;
+
+            document.getElementById('all-count').textContent = allCount;
+            document.getElementById('active-count').textContent = activeCount;
+            document.getElementById('completed-count').textContent = completedCount;
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            // 更新标签页样式
+            document.querySelectorAll('.tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            document.querySelector(`.tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+            renderTodos();
+        }
+
+        function renderTodos() {
+            const todoList = document.getElementById('todoList');
+            todoList.innerHTML = '';
+            
+            // 根据当前标签页筛选任务
+            let filteredTodos = todos;
+            if (currentTab === 'active') {
+                filteredTodos = todos.filter(todo => !todo.completed);
+            } else if (currentTab === 'completed') {
+                filteredTodos = todos.filter(todo => todo.completed);
+            }
+            
+            filteredTodos.forEach((todo, index) => {
+                const originalIndex = todos.indexOf(todo); // 获取在原数组中的索引
+                const li = document.createElement('li');
+                const createdDate = new Date(todo.createdAt).toLocaleString();
+                const completedDate = todo.completedAt ? new Date(todo.completedAt).toLocaleString() : '';
+                const deadlineDate = todo.deadline ? new Date(todo.deadline) : null;
+                const now = new Date();
+                const isOverdue = deadlineDate && !todo.completed && deadlineDate < now;
+                
+                li.innerHTML = `
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" ${todo.completed ? 'checked' : ''} 
+                                   onchange="toggleTodo(${originalIndex})">
+                            <span class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+                        </div>
+                        <div style="font-size: 12px; color: #666; margin-top: 4px;">
+                            创建时间: ${createdDate}
+                            ${todo.completed ? `<br>完成时间: ${completedDate}` : ''}
+                            ${deadlineDate ? `<br>截止时间: <span class="${isOverdue ? 'overdue' : ''}">${deadlineDate.toLocaleString()}</span>` : ''}
+                        </div>
+                    </div>
+                    <button class="delete-btn" onclick="deleteTodo(${originalIndex})">删除</button>
+                `;
+                todoList.appendChild(li);
+            });
+            
+            updateTabCounts();
+            saveTodos();
+        }
+
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            const deadlineInput = document.getElementById('deadlineInput');
+            const text = input.value.trim();
+            const deadline = deadlineInput.value ? new Date(deadlineInput.value).toISOString() : null;
+            
+            if (text) {
+                todos.push({ 
+                    text, 
+                    completed: false,
+                    createdAt: new Date().toISOString(),
+                    completedAt: null,
+                    deadline: deadline
+                });
+                input.value = '';
+                deadlineInput.value = '';
+                renderTodos();
+            }
+        }
+
+        function toggleTodo(index) {
+            todos[index].completed = !todos[index].completed;
+            todos[index].completedAt = todos[index].completed ? new Date().toISOString() : null;
+            renderTodos();
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            renderTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        // 按回车添加待办事项
+        document.getElementById('todoInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTodo();
+            }
+        });
+
+        // 初始化渲染
+        renderTodos();
+    </script>
+</body>
+</html> 
