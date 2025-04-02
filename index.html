@@ -137,6 +137,27 @@
             font-size: 12px;
             margin-left: 5px;
         }
+
+        /* 修改倒计时样式 */
+        .countdown {
+            font-size: 12px;
+            color: #666;
+            margin-left: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+        }
+
+        .countdown.urgent {
+            color: #ff4444;
+            font-weight: bold;
+            background-color: #fff5f5;
+        }
+
+        .countdown.warning {
+            color: #ff9800;
+            background-color: #fff8e1;
+        }
     </style>
 </head>
 <body>
@@ -185,6 +206,36 @@
             renderTodos();
         }
 
+        function getCountdownText(deadline) {
+            const now = new Date();
+            const deadlineDate = new Date(deadline);
+            const diff = deadlineDate - now;
+            
+            if (diff <= 0) return '已过期';
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (days > 0) {
+                return `剩余 ${days} 天 ${hours} 小时`;
+            } else if (hours > 0) {
+                return `剩余 ${hours} 小时 ${minutes} 分钟`;
+            } else {
+                return `剩余 ${minutes} 分钟`;
+            }
+        }
+
+        function getCountdownClass(deadline) {
+            const now = new Date();
+            const deadlineDate = new Date(deadline);
+            const diff = deadlineDate - now;
+            
+            if (diff <= 0) return 'urgent';
+            if (diff <= 24 * 60 * 60 * 1000) return 'warning'; // 24小时内
+            return '';
+        }
+
         function renderTodos() {
             const todoList = document.getElementById('todoList');
             todoList.innerHTML = '';
@@ -198,7 +249,7 @@
             }
             
             filteredTodos.forEach((todo, index) => {
-                const originalIndex = todos.indexOf(todo); // 获取在原数组中的索引
+                const originalIndex = todos.indexOf(todo);
                 const li = document.createElement('li');
                 const createdDate = new Date(todo.createdAt).toLocaleString();
                 const completedDate = todo.completedAt ? new Date(todo.completedAt).toLocaleString() : '';
@@ -212,11 +263,16 @@
                             <input type="checkbox" ${todo.completed ? 'checked' : ''} 
                                    onchange="toggleTodo(${originalIndex})">
                             <span class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+                            ${deadlineDate && !todo.completed ? 
+                                `<span class="countdown ${getCountdownClass(todo.deadline)}">${getCountdownText(todo.deadline)}</span>` : 
+                                ''}
                         </div>
                         <div style="font-size: 12px; color: #666; margin-top: 4px;">
                             创建时间: ${createdDate}
                             ${todo.completed ? `<br>完成时间: ${completedDate}` : ''}
-                            ${deadlineDate ? `<br>截止时间: <span class="${isOverdue ? 'overdue' : ''}">${deadlineDate.toLocaleString()}</span>` : ''}
+                            ${deadlineDate ? `
+                                <br>截止时间: <span class="${isOverdue ? 'overdue' : ''}">${deadlineDate.toLocaleString()}</span>
+                            ` : ''}
                         </div>
                     </div>
                     <button class="delete-btn" onclick="deleteTodo(${originalIndex})">删除</button>
@@ -272,6 +328,13 @@
 
         // 初始化渲染
         renderTodos();
+
+        // 添加定时更新倒计时
+        setInterval(() => {
+            if (currentTab !== 'completed') {
+                renderTodos();
+            }
+        }, 60000); // 每分钟更新一次
     </script>
 </body>
 </html> 
